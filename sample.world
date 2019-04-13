@@ -1,0 +1,46 @@
+/*
+ground(
+	(x, y, w, h),
+	(friction, restitution, rotation),
+	[(mass, fixed_rotation, linear_damping, angular_damping, hits_player, hits_ground)]
+)
+sensor(
+	(x, y, w, h),
+	rotation
+)
+light(
+	(x, y, radius),
+	(R, G, B),
+	[attached_to]
+)
+jd(
+	a, b
+)
+jp(
+	a, b, (x, y), (axis_x, axis_y),
+	[motor_torque, motor_speed],
+	[lower_limit, upper_limit]
+)
+jr(
+	a, b, (x, y)
+	[motor_torque, motor_speed],
+	[lower_limit, upper_limit]
+)
+jpl(
+	a, b, (ax, ay), (ax, ay)
+)
+*/
+
+ground((2.0, 6.0, 5.0, 1.0), (0.0, 0.2, 0.1111));
+a = ground((4.0, 1.0, 1.0, 1.0), (0.3, 0.2, -0.61086),
+	(0.0, no, 0.0, 0.0, yes, yes));
+b = ground((8.0, 4.0, 1.1, 1.1), (0.3, 0.2, 0.1),
+	(0.0, no, 0.0, 0.0, yes, yes));
+floor = ground((8.0, 12.0, 16.0, 0.5), (0.3, 1.1, 0.0));
+ground((16.0, 6.0, 0.5, 12.0), (0.3, 0.2, 0.0));
+ground((0.0, 6.0, 0.5, 12.0), (0.3, 0.2, 0.0));
+
+light((1.0, 1.0, 5.0), (0.156863, 0.0, 1.0));
+light((0.0, 0.0, 1.0), (1.0, 0.0, 0.0), b);
+light((0.0, 0.0, 1.0), (0.2, 0.2, 0.2), a);
+
